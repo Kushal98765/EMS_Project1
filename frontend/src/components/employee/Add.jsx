@@ -37,7 +37,7 @@ const Add = () => {
         })  
 
         try {
-            const response = await axios.post(`http://localhost:5000/api/employee/add`, formDataObj, {
+            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/employee/add`, formDataObj, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }
