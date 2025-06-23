@@ -13,7 +13,7 @@ const authContext = ({ children }) => {
             try {
                 const token = localStorage.getItem('token')
                 if(token){
-                    const response = await axios.get(`${REACT_APP_API_URLapi}/api/auth/verify`, {
+                    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/verify`, {
                         headers: {
                             "Authorization" : `Bearer ${token}`
                         }
