@@ -1,8 +1,8 @@
 import axios from 'axios';
-import React, { useContext, useState } from 'react';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/authContext';
 import './Login.css';
-import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -15,6 +15,10 @@ const Login = () => {
     // const {user} = useContext(userContext);
 
     e.preventDefault();
+
+     console.log(`${import.meta.env.VITE_API_URL}/api/auth/login`);
+
+
     try {
       const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/login`, { email, password });
       if(response.data.success) {
