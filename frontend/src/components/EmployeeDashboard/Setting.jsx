@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/authContext';
 import axios from 'axios';
+import { API_BASE_URL } from '../../../utils';
 
 const Setting = () => {
     const navigate = useNavigate();
@@ -26,7 +27,7 @@ const Setting = () => {
         } else {
             try {
                 const response = await axios.put(
-                    `${import.meta.env.VITE_API_URL}/api/setting/change-password`,
+                    `${API_BASE_URL}/api/setting/change-password`,
                     setting,
                     {
                         headers: {

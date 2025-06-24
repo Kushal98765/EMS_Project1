@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import DataTable from 'react-data-table-component';
 import { columns, LeaveButtons } from '../../utils/LeaveHelper';
 import axios from 'axios';
+import { API_BASE_URL } from '../../../utils';
 
 
 const Table = () => {
@@ -11,7 +12,7 @@ const Table = () => {
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/leave`, {
+            const response = await axios.get(`${API_BASE_URL}/api/leave`, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`
                 }

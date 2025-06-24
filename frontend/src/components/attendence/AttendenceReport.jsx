@@ -2,6 +2,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './AttendenceReport.css';
+import { API_BASE_URL } from '../../../utils';
 
 
 const AttendenceReport = () => {
@@ -18,7 +19,7 @@ const AttendenceReport = () => {
       if (dateFilter) {
         query.append("date", dateFilter);
       }
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/attendence/report?${query.toString()}`, {
+      const response = await axios.get(`${API_BASE_URL}/api/attendence/report?${query.toString()}`, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('token')}`
         }

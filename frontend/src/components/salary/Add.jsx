@@ -3,7 +3,7 @@ import React from 'react';
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { fetchDepartments, getEmployees } from '../../utils/EmployeeHelper';
-
+import { API_BASE_URL } from '../../../utils';
 
 const Add = () => {
     const [salary, setSalary] = useState({
@@ -42,7 +42,7 @@ const Add = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/salary/add`, 
+            const response = await axios.post(`${API_BASE_URL}/api/salary/add`, 
                 salary, {
                 headers: {
                     "Authorization": `Bearer ${localStorage.getItem('token')}`

@@ -14,7 +14,7 @@ const List = () => {
   const fetchEmployees = async () => {
     setEmpLoading(true);
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/employee`, {
+      const response = await axios.get(`${API_BASE_URL}/api/employee`, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
@@ -31,7 +31,7 @@ const List = () => {
           name: emp.userId?.name || 'N/A',
           dob: new Date(emp.dob).toLocaleDateString(),
           profileImage: emp.userId?.profileImage ? (
-            <img width={40} className='rounded-full' src={`${import.meta.env.VITE_API_URL}/${emp.userId.profileImage}`} alt="Profile" />
+            <img width={40} className='rounded-full' src={`${API_BASE_URL}/${emp.userId.profileImage}`} alt="Profile" />
           ) : 'N/A',
           action: (<EmployeeButtons Id={emp._id} refreshData={fetchEmployees} />) // ✅ pass refreshData
         }));

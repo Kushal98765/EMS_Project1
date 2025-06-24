@@ -5,6 +5,7 @@ import { columns, DepartmentButtons } from '../../utils/DepartmentHelper'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { useState } from 'react'
+import { API_BASE_URL } from '../../../utils'
 
 const DepartmentList = () => {
   const [departments, setDepartments] = useState([]);
@@ -18,7 +19,7 @@ const DepartmentList = () => {
   const fetchDepartments = async () => {
       setDepLoading(true);
       try {
-        const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/department`, {
+        const response = await axios.get(`${API_BASE_URL}/api/department`, {
           headers: {
             "Authorization": `Bearer ${localStorage.getItem('token')}`
           }

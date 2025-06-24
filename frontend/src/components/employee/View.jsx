@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import axios from 'axios';
+import { API_BASE_URL } from '../../utils'
 
 const View = () => {
     const { id } = useParams();
@@ -9,7 +10,7 @@ const View = () => {
     useEffect(() => {
         const fetchEmployee = async () => {
             try {
-                const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/employee/${id}`, {
+                const response = await axios.get(`${API_BASE_URL}/api/employee/${id}`, {
                     headers: {
                         "Authorization": `Bearer ${localStorage.getItem('token')}`
                     }
@@ -33,7 +34,7 @@ const View = () => {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>
                 <div>
-                    <img src={`${import.meta.env.VITE_API_URL}/${employee.userId.profileImage
+                    <img src={`${API_BASE_URL}/${employee.userId.profileImage
                         }`} className='rounded-full border' style={{ width: '288px', height:'300px' }} />
                 </div>
                 <div>

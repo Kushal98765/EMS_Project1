@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import { API_BASE_URL } from "../../utils";
 
 export const columns = [
   { name: 'S No', selector: (row) => row.sno, width: "70px" },
@@ -12,7 +13,7 @@ export const columns = [
 export const AttendenceHelper = ({ status, employeeId, statusChange }) => {
   const markEmployee = async (status, employeeId) => {
     try {
-      const response = await axios.put(`${import.meta.env.VITE_API_URL}/api/attendence/update/${employeeId}`, { status }, {
+      const response = await axios.put(`${API_BASE_URL}/api/attendence/update/${employeeId}`, { status }, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('token')}`,
         },

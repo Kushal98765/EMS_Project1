@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from "../../../utils";
 
 const AddDepartment = () => {
   const [department, setDepartment] = useState({
@@ -18,7 +19,7 @@ const AddDepartment = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/department/add`, department, {
+      const response = await axios.post(`${API_BASE_URL}/api/department/add`, department, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('token')}`
         }

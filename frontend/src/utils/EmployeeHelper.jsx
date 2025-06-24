@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { API_BASE_URL } from "../../utils";
 
 export const columns = [
     {
@@ -41,7 +42,7 @@ export const columns = [
 export const fetchDepartments = async () => {
   let departments
   try {
-    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/department`, {
+    const response = await axios.get(`${API_BASE_URL}/api/department`, {
       headers: {
         "Authorization": `Bearer ${localStorage.getItem('token')}`
       }
@@ -88,7 +89,7 @@ export const EmployeeButtons = ({ Id, refreshData }) => {
     if (!confirm) return;
 
     try {
-      const response = await axios.delete(`${import.meta.env.VITE_API_URL}/api/employee/${Id}`, {
+      const response = await axios.delete(`${API_BASE_URL}/api/employee/${Id}`, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('token')}`
         }

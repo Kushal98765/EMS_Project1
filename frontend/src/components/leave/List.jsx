@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios';
 import { useAuth } from '../../context/authContext';
-
+import { API_BASE_URL } from '../../../utils';
 
 const List = () => {
     const [leaves, setLeaves] = useState(null);
@@ -13,7 +13,7 @@ const List = () => {
 
     const fetchLeaves = async () => {
         try {
-            const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/leave/${id}/${user.role}`, {
+            const response = await axios.get(`${API_BASE_URL}/api/leave/${id}/${user.role}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                 },

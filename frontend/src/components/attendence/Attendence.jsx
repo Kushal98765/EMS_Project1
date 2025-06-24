@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { columns, AttendenceHelper } from '../../utils/AttendenceHelper';
 import DataTable from 'react-data-table-component';
 import axios from 'axios';
+import { API_BASE_URL } from '../../../utils';
 
 const Attendence = () => {
   const [attendence, setAttendence] = useState([]);
@@ -16,7 +17,7 @@ const Attendence = () => {
   const fetchAttendence = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/attendence`, {
+      const response = await axios.get(`${API_BASE_URL}/api/attendence`, {
         headers: {
           "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
