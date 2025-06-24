@@ -1,6 +1,6 @@
-import express from 'express'
-import authMiddleware from '../middleware/authMiddleware.js'
-import { addEmployee, upload, getEmployees, getEmployee, updateEmployee, fetchEmployeesByDepId, deleteEmployee } from '../controllers/employeeController.js'
+import express from 'express';
+import { addEmployee, deleteEmployee, fetchEmployeesByDepId, getEmployee, getEmployees, updateEmployee, upload } from '../controllers/employeeController.js';
+import authMiddleware from '../middleware/authMiddleware.js';
 import roleMiddleware from '../middleware/roleMiddleware.js';
 
 

@@ -56,7 +56,7 @@ const Detail = () => {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-2" style={{ gap: '24px' }}>
                     <div>
-                        <img src={`${import.meta.env.VITE_API_URL}/${leave.employeeId.userId.profileImage
+                        <img src={`${API_BASE_URL}/${leave.employeeId.userId.profileImage
                             }`} className='rounded-full border' style={{ width: '288px', height: '300px' }} />
                     </div>
                     <div>
