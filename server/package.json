@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-  "start": "npm run build-frontend && node index.js",
-  "build-frontend": "cd frontend && npm install && npm run build"
+  "build-frontend": "cd ../client && npm install && npm run build",
+  "start": "npm run build-frontend && node index.js"
 },
   "keywords": [],
   "author": "",
