@@ -1,8 +1,7 @@
 import cors from 'cors';
 import express from "express";
-import path from 'path';
+import path, { dirname } from 'path';
 import { fileURLToPath } from 'url';
-import { dirname } from 'path';
 
 import connectToDatabase from './db/db.js';
 import attendenceRouter from './routes/attendence.js';
@@ -20,26 +19,10 @@ connectToDatabase();
 const app = express();
 
 // CORS
-// app.use(cors({
-//     origin: 'https://ems-project1-ui.onrender.com',
-//     credentials: true
-// }));
 app.use(cors({
-    origin: function (origin, callback) {
-        const allowedOrigins = [
-            'https://ems-project1-ui.onrender.com',
-            'http://localhost:5173'
-        ];
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
+    origin: 'https://ems-project1-ui.onrender.com',
+    credentials: true
 }));
-
-
 
 app.use(express.json());
 app.use(express.static('public/uploads'));
