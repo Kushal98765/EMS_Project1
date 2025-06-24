@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createContext, useContext, useEffect, useState } from 'react';
-
+import { API_BASE_URL } from '../../utils';
 
 const userContext = createContext()
 
@@ -13,7 +13,7 @@ const authContext = ({ children }) => {
             try {
                 const token = localStorage.getItem('token')
                 if(token){
-                    const response = await axios.get(`${import.meta.env.VITE_API_URL}/api/auth/verify`, {
+                    const response = await axios.get(`${API_BASE_URL}/api/auth/verify`, {
                         headers: {
                             "Authorization" : `Bearer ${token}`
                         }
