@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build-frontend": "cd ../frontend && npm install && npm run build",
-    "start": "npm run build-frontend && node index.js"
-  },
+  "install-frontend": "cd ../frontend && npm install",
+  "build-frontend": "cd ../frontend && npm run build",
+  "start": "npm run install-frontend && npm run build-frontend && node index.js"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
