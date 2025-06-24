@@ -20,10 +20,26 @@ connectToDatabase();
 const app = express();
 
 // CORS
+// app.use(cors({
+//     origin: 'https://ems-project1-ui.onrender.com',
+//     credentials: true
+// }));
 app.use(cors({
-    origin: 'https://ems-project1-ui.onrender.com',
-    credentials: true
+    origin: function (origin, callback) {
+        const allowedOrigins = [
+            'https://ems-project1-ui.onrender.com',
+            'http://localhost:5173'
+        ];
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
+    credentials: true,
 }));
+
+
 
 app.use(express.json());
 app.use(express.static('public/uploads'));
