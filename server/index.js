@@ -28,6 +28,21 @@ app.use('/api/attendence', attendenceRouter);
 app.use('/api/dashboard', dashboardRouter);
 
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server is Running on port ${process.env.PORT}`)
+// === Serve Frontend ===
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Serve Vite build from /frontend/dist (adjust if your folder is different)
+app.use(express.static(path.join(__dirname, 'frontend', 'dist')));
+
+// Fallback for React Router
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'dist', 'index.html'));
+});
+
+
+// start server
+const PORT = process.env.PORT || 5000;  
+app.listen(PORT, () => {
+    console.log(`Server is Running on port ${PORT}`)
 })
