@@ -21,7 +21,7 @@ const app = express();
 
 // CORS
 app.use(cors({
-    origin: 'https://ems-project1-api.onrender.com',
+    origin: 'https://ems-project1-ui.onrender.com',
     credentials: true
 }));
 
